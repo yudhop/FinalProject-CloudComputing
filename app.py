@@ -15,6 +15,7 @@ import uuid
 import midtransclient
 import re
 from recommender import SimpleRecommender
+import os
 
 snap = midtransclient.Snap(
     is_production=False,       # Sandbox
@@ -23,7 +24,7 @@ snap = midtransclient.Snap(
 )
 
 app = Flask(__name__)
-app.secret_key = "easyfood-secret-key"
+app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-key")
 app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
@@ -1251,5 +1252,6 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=5000)
+
 
 
