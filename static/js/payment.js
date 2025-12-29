@@ -1,5 +1,5 @@
 // PAYMENT JAVASCRIPT REVISED
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
 
 document.addEventListener("DOMContentLoaded", () => {
   const amountText = document.getElementById("amountText");
@@ -288,4 +288,5 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch (e) { }
     }, 5000); 
   }
+
 });
