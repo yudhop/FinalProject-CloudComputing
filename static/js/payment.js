@@ -1,5 +1,5 @@
 // PAYMENT JAVASCRIPT REVISED
-const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
+// const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
 
 document.addEventListener("DOMContentLoaded", () => {
   const amountText = document.getElementById("amountText");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ================= FETCH DATA =================
   function fetchOrderSummary() {
-      fetch(`${API_URL}/orders/${orderId}/summary`, { credentials: "include" })
+      fetch(`/orders/${orderId}/summary`, { credentials: "include" })
         .then(res => res.json())
         .then(data => {
           if (!data.success) return;
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function fetchPaymentInfo() {
-      fetch(`${API_URL}/orders/${orderId}/payment-info`, { credentials: "include" })
+      fetch(`/orders/${orderId}/payment-info`, { credentials: "include" })
         .then(res => res.json())
         .then(data => {
           if (!data.success) return;
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     payNowBtn.textContent = "Processing...";
 
     try {
-      const res = await fetch(`${API_URL}/payments/midtrans-token`, {
+      const res = await fetch(`/payments/midtrans-token`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(async () => {
              try {
                 // 1. Konfirmasi ke Backend
-                await fetch(`${API_URL}/payments/confirm`, {
+                await fetch(`/payments/confirm`, {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   credentials: "include",
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // 2. Logic Update UI
                 if (isSplit) {
                     // Ambil status terbaru
-                    const statusRes = await fetch(`${API_URL}/orders/${orderId}/split`, { credentials: "include" });
+                    const statusRes = await fetch(`/orders/${orderId}/split`, { credentials: "include" });
                     const statusData = await statusRes.json();
                     
                     if (statusData.success) {
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (isSplit) {
     setInterval(async () => {
       try {
-        const res = await fetch(`${API_URL}/orders/${orderId}/split`, { credentials: "include" });
+        const res = await fetch(`/orders/${orderId}/split`, { credentials: "include" });
         if (res.ok) {
           const data = await res.json();
           if (data.success) {
@@ -290,3 +290,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
