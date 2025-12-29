@@ -43,7 +43,7 @@ loginForm.addEventListener("submit", async (e) => {
     }
 
     try {
-        const res = await fetch(`${API_URL}/auth/login`, {
+        const res = await fetch(`/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -75,7 +75,7 @@ loginForm.addEventListener("submit", async (e) => {
 // CEK LOGIN SAAT REFRESH
 async function checkLoginSession() {
     try {
-        const res = await fetch(`${API_URL}/auth/me`, {
+        const res = await fetch(`/auth/me`, {
             credentials: "include"
         });
         const data = await res.json();
@@ -105,7 +105,7 @@ function setLoggedInUI(user) {
 
 // LOGOUT
 async function logout() {
-    await fetch(`${API_URL}/auth/logout`, {
+    await fetch(`/auth/logout`, {
         method: "POST",
         credentials: "include"
     });
@@ -132,7 +132,7 @@ function registerUser() {
     return;
   }
 
-  fetch(`${API_URL}/auth/register`, {
+  fetch(`/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password })
@@ -185,7 +185,7 @@ async function loadRecommendations() {
         
         console.log("Loading recommendations for user:", currentUserId);
         
-        const response = await fetch(`${API_URL}/api/recommendations?lat=${lat}&lon=${lon}`, {
+        const response = await fetch(`/api/recommendations?lat=${lat}&lon=${lon}`, {
             credentials: "include"
         });
         
@@ -305,7 +305,7 @@ function renderFallbackRecommendations() {
 // Show recommendation insights
 async function showRecommendationInsights() {
     try {
-        const response = await fetch(`${API_URL}/api/recommendations/insights`, {
+        const response = await fetch(`/api/recommendations/insights`, {
             credentials: "include"
         });
         
@@ -451,7 +451,7 @@ function initRecommendationSystem() {
 
 async function loadRestaurants(lat, lon) {
     try {
-        const res = await fetch(`${API_URL}/orders/stores?lat=${lat}&lon=${lon}`);
+        const res = await fetch(`/orders/stores?lat=${lat}&lon=${lon}`);
         const data = await res.json();
         RESTAURANTS = data.map(s => ({
             ...s,
@@ -520,7 +520,7 @@ async function openStore(id) {
     switchContent(async () => {
         contentFeed.innerHTML = "<h2 style='text-align:center;'>Memuat Menu...</h2>";
         try {
-            const res = await fetch(`${API_URL}/orders/stores/${id}/menu`);
+            const res = await fetch(`/orders/stores/${id}/menu`);
             const menuData = await res.json();
             activeStore.menus = menuData.map(m => ({
                 ...m,
@@ -704,7 +704,7 @@ function processCheckout() {
         items: cart
     };
 
-    fetch(`${API_URL}/orders/checkout`, {
+    fetch(`/orders/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // 🔥 WAJIB (SESSION)
@@ -769,6 +769,7 @@ sidebarItems.forEach(item=>{
 // START
 checkLoginSession();
 initApp();
+
 
 
 
