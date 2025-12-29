@@ -1,5 +1,5 @@
 /* ================= CONFIG ================= */
-const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
+// const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
 const orderId = ORDER_ID;
 const POLL_INTERVAL = 4000;
 const SPEED_KMH = 1000;
@@ -133,7 +133,7 @@ async function updateOrderStatusInDb(newStatus) {
 
   try {
     // Sesuaikan endpoint ini dengan rute backend Anda
-    const res = await fetch(`${API_URL}/orders/${orderId}/update-status`, {
+    const res = await fetch(`/orders/${orderId}/update-status`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ async function loadDriverAndStoreFromOrder() {
 
   try {
     const res = await fetch(
-      `${API_URL}/orders/${orderId}/arive-driver`,
+      `/orders/${orderId}/arive-driver`,
       { credentials: "include" }
     );
 
@@ -657,7 +657,7 @@ async function fetchDriverRealtime() {
   
   try {
     const res = await fetch(
-      `${API_URL}/orders/${orderId}/driver-pos`,
+      `/orders/${orderId}/driver-pos`,
       { credentials: "include" }
     );
 
@@ -957,3 +957,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 100);
 
 });
+
