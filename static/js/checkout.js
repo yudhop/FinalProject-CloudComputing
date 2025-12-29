@@ -1,4 +1,4 @@
-const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
+// const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
 
 /* DATA */
 const DELIVERY = 3.5;
@@ -236,7 +236,7 @@ function selectDriver(id){
 async function fetchDrivers() {
   try {
     const res = await fetch(
-      `${API_URL}/drivers?store_id=${storeId}`
+      `/drivers?store_id=${storeId}`
     );
     drivers = await res.json();
     renderDrivers();
@@ -283,7 +283,7 @@ document.getElementById("confirmBtn").onclick = async () => {
       : null
   };
 
-  const res = await fetch(`${API_URL}/orders/checkout`, {
+  const res = await fetch(`/orders/checkout`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
@@ -322,4 +322,5 @@ renderTotal();
 renderPeople();
 
 fetchDrivers();
+
 
