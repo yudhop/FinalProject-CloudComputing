@@ -1,4 +1,4 @@
-const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net;
+const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net";
 
 /* DATA */
 const DELIVERY = 3.5;
@@ -322,3 +322,4 @@ renderTotal();
 renderPeople();
 
 fetchDrivers();
+
