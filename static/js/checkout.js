@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net;
 
 /* DATA */
 const DELIVERY = 3.5;
@@ -320,4 +320,5 @@ document.getElementById("confirmBtn").onclick = async () => {
 renderItems();
 renderTotal();
 renderPeople();
+
 fetchDrivers();
