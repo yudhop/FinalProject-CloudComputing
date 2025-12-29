@@ -1,6 +1,6 @@
 // APP JAVASCRIPT
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "client-easyfood-anhrasg7d6a2azb9.indonesiacentral-01.azurewebsites.net;
 const contentFeed = document.getElementById("contentFeed");
 const searchInput = document.getElementById("searchInput");
 const sidebarItems = document.querySelectorAll(".sidebar-nav-menu .nav-item");
@@ -769,3 +769,4 @@ sidebarItems.forEach(item=>{
 // START
 checkLoginSession();
 initApp();
+
