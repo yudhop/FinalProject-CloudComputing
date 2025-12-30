@@ -908,7 +908,7 @@ def payment_info(order_id):
 
 
 @app.route("/payments/confirm", methods=["POST"])
-@login_required
+# @login_required
 def confirm_payment():
     data = request.json
     raw_order_id = data.get("order_id") # Contoh: "ORD-123|You|abc"
@@ -1252,6 +1252,7 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=5000)
+
 
 
 
