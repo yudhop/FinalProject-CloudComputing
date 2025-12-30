@@ -193,7 +193,7 @@ class CustomerOrderItem(db.Model):
 class OrderSplit(db.Model):
     __tablename__ = "order_split"
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     order_id = db.Column(db.String(30))
     person_name = db.Column(db.String(50))
     amount = db.Column(db.Numeric(10,2))
@@ -1252,6 +1252,7 @@ if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True, port=5000)
+
 
 
 
