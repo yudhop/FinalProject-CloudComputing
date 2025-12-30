@@ -1,24 +1,24 @@
 {
-    "name": "login-system",
-    "version": "1.0.0",
-    "description": "Simple login system with Bootstrap 5 and MySQL",
-    "main": "server.js",
-    "scripts": {
-        "start": "nodemon server.js"
-    },
-    "dependencies": {
-        "@popperjs/core": "^2.11.8",
-        "body-parser": "^1.20.2",
-        "bootstrap": "^5.3.8",
-        "bootstrap-icons": "^1.13.1",
-        "cors": "^2.8.5",
-        "express": "^4.19.2",
-        "express-session": "^1.18.2",
-        "multer": "^2.0.2",
-        "mysql2": "^3.9.7",
-        "nodemailer": "^7.0.11"
-    },
-    "devDependencies": {
-        "nodemon": "^3.1.11"
-    }
+  "name": "login-system",
+  "version": "1.0.0",
+  "description": "Simple login system with Bootstrap 5 and MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.9.7",
+    "nodemailer": "^7.0.11"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
 }
